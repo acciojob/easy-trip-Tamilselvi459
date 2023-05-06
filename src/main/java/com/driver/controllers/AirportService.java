@@ -65,4 +65,8 @@ public class AirportService {
     public int getNumberOfPeopleOn(Date date, String airportName) {
         return airportrepository.getNumberOfPeopleOn(date,airportName);
     }
+
+    public int calculateRevenueOfAFlight(Integer flightId) {
+        return airportrepository.calculateRevenueOfAFlight(flightId);
+    }
 }

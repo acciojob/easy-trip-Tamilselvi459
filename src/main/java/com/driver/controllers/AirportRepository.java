@@ -6,10 +6,7 @@ import com.driver.model.Flight;
 import com.driver.model.Passenger;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class AirportRepository {
@@ -122,6 +119,7 @@ public class AirportRepository {
     }
 
     public int getNumberOfPeopleOn(Date date, String airportName) {
+        if(Objects.isNull(date) || Objects.isNull(airportName)) return 0;
         int count = 0;
         for(int id : flightMap.keySet()){
             Date d = flightMap.get(id).getFlightDate();
@@ -133,5 +131,11 @@ public class AirportRepository {
             }
         }
         return count;
+    }
+
+    public int calculateRevenueOfAFlight(Integer flightId) {
+        int counts = flightpassPair.get(flightId).size();
+        return (counts-1)*50 + (3000);
+
     }
 }
