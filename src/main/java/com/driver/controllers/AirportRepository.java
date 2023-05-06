@@ -119,7 +119,7 @@ public class AirportRepository {
     }
 
     public int getNumberOfPeopleOn(Date date, String airportName) {
-        if(Objects.isNull(date) || Objects.isNull(airportName)) return 0;
+        if(Objects.nonNull(date)){
         int count = 0;
         for(int id : flightMap.keySet()){
             Date d = flightMap.get(id).getFlightDate();
@@ -130,7 +130,8 @@ public class AirportRepository {
                 }
             }
         }
-        return count;
+        return count; }
+        return 0;
     }
 
     public int calculateRevenueOfAFlight(Integer flightId) {
