@@ -124,13 +124,17 @@ public class AirportRepository {
         for(int id : flightMap.keySet()){
             Date d = flightMap.get(id).getFlightDate();
             if(d.equals(date)){
-                City city = airportmap.get(airportName).getCity();
-                if(city.equals(flightMap.get(id).getFromCity()) || city.equals(flightMap.get(id).getToCity())){
-                    count += flightpassPair.get(id).size();
-                }
+             if(airportmap.containsKey(airportName)) {
+                 City city = airportmap.get(airportName).getCity();
+                 if (city.equals(flightMap.get(id).getFromCity()) || city.equals(flightMap.get(id).getToCity())) {
+
+                     count += flightpassPair.get(id).size();
+                 }
+             }
             }
         }
-        return count; }
+        return count;
+        }
         return 0;
     }
 
