@@ -17,8 +17,8 @@ import java.util.Objects;
 
 @RestController
 public class AirportController {
-    @Autowired
-    AirportService airportservice;
+
+    AirportService airportservice = new AirportService();
     @PostMapping("/add_airport") //1
     public String addAirport(@RequestBody Airport airport){
 
